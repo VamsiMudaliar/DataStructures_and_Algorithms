@@ -2,9 +2,9 @@
 using namespace std;
 
 int freq[200]={0};
-int findNumber(int n)
+ void findNumber(int n)
 {
-	int cur_rem=0;
+	int curr_rem=0;
 	for(int i=1;i<=n;i++)
 	{
 		curr_rem=(curr_rem*10+1)%n;
@@ -16,20 +16,21 @@ int findNumber(int n)
 			}
 			return;
 		}
-	}
+	
 	if(freq[curr_rem]!=0)
 	{
-		for(int j=1;j<i-freq[curr_rem];j++)
+		for(int j=1;j<=i-freq[curr_rem];j++)
 		{
 			cout<<1;
 		}
-		for(int j=1;j<freq[curr_rem];j++)
+		for(int j=1;j<=freq[curr_rem];j++)
 		{
 			cout<<0;
 		}
-		return ;
+		return;
 	}
 	freq[curr_rem]=i;
+}
 }
 
 
@@ -38,5 +39,5 @@ int findNumber(int n)
 int main()
 {
 	
-	
+	findNumber(101);
 }
