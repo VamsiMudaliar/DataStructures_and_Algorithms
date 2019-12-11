@@ -2,25 +2,23 @@
 #define N 10000
 using namespace std;
 
-int arr[10000];
-void max_sub_array(int n)
+long long arr[10000];
+long long max_sub_array(int arr[],int n)
 {
-	int ans=arr[0],sum=-999;
-	
-	for(int i=0;i<n;i++)
+	long long  ans=arr[0],sum=0;
+	for(int i=1;i<n;i++)
 	{
 		sum+=arr[i];
-		if(sum<0)
-		{
-			sum=0;
-		}
 		if(sum>ans)
 		{
 			ans=sum;
 		}
-			
+		if(sum<0)
+		{
+			sum=0;
+		}	
 	}
-	cout<<"MAx Sub Array Value :"<<ans;
+	return ans;
 	
 }
 
@@ -34,7 +32,7 @@ int main()
 	{
 		cin>>arr[i];
 	}
-	max_sub_array(n);
+	cout<<max_sub_array(n);
 	
 	
 }

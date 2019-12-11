@@ -6,8 +6,24 @@ using namespace std;
 
 ll fme( ll n,ll m)
 {
-	ll ans=1;
-	while(m>=1)	{
+	//ll ans=1;
+	if(m==0){
+		return 1;
+	}
+	if(m==1)
+	{
+		return n;
+	}
+	else{
+		if(m%2==0){
+			return fme((n*n)%MOD,m/2);
+		}
+		else{
+			return n*fme(n,m-1);
+		}
+	}
+	
+	/*while(m>=1)	{
 	if(m%2==0){
 		n= ( n*n ) % MOD;
 		m/=2;
@@ -16,8 +32,7 @@ ll fme( ll n,ll m)
 		ans=(ans*n)% MOD;
 		m--;
 	}
-	}
-	return ans;
+	}*/
 }
 int main()
 {
